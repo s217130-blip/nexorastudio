@@ -453,6 +453,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// assets/app.js
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 手機版漢堡選單開關
+  const hamburger = document.getElementById('hamburger');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+
+  if (hamburger && mobileDrawer) {
+    hamburger.addEventListener('click', () => mobileDrawer.classList.add('open'));
+  }
+  if (drawerClose && mobileDrawer) {
+    drawerClose.addEventListener('click', () => mobileDrawer.classList.remove('open'));
+  }
+  window.closeDrawer = () => { if (mobileDrawer) mobileDrawer.classList.remove('open'); };
+
+  // 2. 針對 Part 5 智能出題頁面 (quiz.html) 渲染內容
+  const quizBtn = document.getElementById('quizBtn');
+  const toolMain = document.querySelector('.tool-main');
+
+  if (quizBtn && toolMain) {
+    quizBtn.addEventListener('click', () => {
+      // 顯示載入中
+      toolMain.innerHTML = `
+        <div class="state-center">
+          <div class="spinner"></div>
+          <div>Nexora AI 正在雲端生成多益考題...</div>
+        </div>
+      `;
+
+      // 模擬 1 秒後生成題目內容，直接把內容灌進網頁
+      setTimeout(() => {
+        toolMain.innerHTML = `
+          <div class="quiz-badge">Part 5 / 文法與字彙</div>
+          <div class="quiz-q">
+            The board of directors approved the budget proposal because it contained _______ projections for the upcoming fiscal year.
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="checkAnswer(this, false)"><span class="opt-key">A</span> realistic</button>
+            <button class="quiz-opt" onclick="checkAnswer(this, false)"><span class="opt-key">B</span> realistically</button>
+            <button class="quiz-opt" onclick="checkAnswer(this, true)"><span class="opt-key">C</span> realism</button>
+            <button class="quiz-opt" onclick="checkAnswer(this, false)"><span class="opt-key">D</span> realize</button>
+          </div>
+          <div class="quiz-analysis" id="analysis" style="display:block; border-top:1px solid var(--border); padding-top:14px;">
+            <div class="ans-correct">✓ 正確答案：C</div>
+            <div class="ans-row"><strong>中文翻譯：</strong>董事會核准了預算提案，因為它包含了對即將到來的財政年度的務實預測。</div>
+            <div class="ans-row"><strong>AI 考點解析：</strong>空格後方修飾名詞 projections，因此需要填入形容詞。選項 (A) 為形容詞，符合句意。</div>
+          </div>
+        `;
+      }, 1000);
+    });
+  }
+});
+
+// 全域答案檢查函式
+window.checkAnswer = (element, isCorrect) => {
+  if (isCorrect) {
+    element.classList.add('correct');
+    alert('太棒了！答對了！');
+  } else {
+    element.classList.add('wrong');
+    alert('答錯囉，看下方解析複習一下！');
+  }
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
