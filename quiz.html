@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 5 智能出題 - Nexora</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links"><a class="active" href="index.html">AI 工具</a><a href="resources.html#toeic-resources">多益資源</a><a href="tasks.html">學習任務</a>
+      <a href="backend.html">後台</a></div>
+    <div class="nav-right"><div class="cloud-pill"><span class="cloud-dot"></span> 雲端出題</div><button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button></div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer"><div class="mobile-panel"><button class="drawer-close" id="drawerClose">x</button><a href="index.html" onclick="closeDrawer()">AI 工具</a><a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a><a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a></div></div>
+  <section class="hero"><div class="hero-eyebrow">TOEIC Part 5 Generator</div><h1>Part 5 智能出題<br><em>雲端生成與解析</em></h1><p>選擇商務情境，由雲端 AI 生成單句填空題、答案、中文翻譯與考點解析。</p></section>
+  <main class="page-wrap">
+    <div class="tool-shell">
+      <aside class="tool-sidebar">
+        <div class="mode-tabs">
+          <a class="mode-tab" href="vocabulary.html"><span class="tab-icon">🔍</span> 單字掃描</a>
+          <a class="mode-tab active" href="quiz.html"><span class="tab-icon">📝</span> Part 5 出題</a>
+          <a class="mode-tab" href="assistant.html"><span class="tab-icon">💬</span> AI 助理</a>
+        </div>
+        <div>
+          <label class="form-label">出題情境</label>
+          <select id="quizCategory" class="form-select">
+            <option value="商務會議 (Meetings)">商務會議</option>
+            <option value="人事招募 (Personnel)">人事招募</option>
+            <option value="辦公室溝通 (Office)">辦公室溝通</option>
+            <option value="採購與合約 (Purchasing)">採購與合約</option>
+            <option value="財務報告 (Finance)">財務報告</option>
+            <option value="旅遊與交通 (Travel)">旅遊與交通</option>
+          </select>
+          <div style="height:8px;"></div>
+          <button class="btn btn-green btn-full" id="quizBtn">生成考題</button>
+          <button class="btn btn-ghost btn-full" id="clearQuizBtn" style="margin-top:6px;">清除</button>
+        </div>
+        <div id="errNotice" style="font-size:12px;color:var(--red);display:none;padding:4px 2px;"></div>
+      </aside>
+      <section class="tool-main">
+        <div class="state-center" id="stateWelcome"><div class="big">📝</div><div>選擇情境產生考題</div><div style="font-size:11px;color:var(--ink-4);">詞性 · 語態 · 時態 · 介系詞</div></div>
+        <div class="state-center" id="stateLoading" style="display:none;"><div class="spinner"></div><div>雲端 AI 出題中...</div></div>
+        <div id="stateResult" style="display:none;"></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · TOEIC Part 5</span><span>Server-side generation</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

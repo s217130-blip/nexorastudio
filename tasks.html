@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學習任務 - Nexora</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links">
+      <a href="index.html">AI 工具</a>
+      <a href="resources.html#toeic-resources">多益資源</a>
+      <a class="active" href="tasks.html">學習任務</a>
+    </div>
+    <div class="nav-right">
+      <div class="cloud-pill"><span class="cloud-dot"></span> 任務同步</div>
+      <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-panel">
+      <button class="drawer-close" id="drawerClose">x</button>
+      <a href="index.html" onclick="closeDrawer()">AI 工具</a>
+      <a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a>
+      <a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Study Tasks · Login Ready</div>
+    <h1>學習任務<br><em>把 AI 工具變成每日進度</em></h1>
+    <p>登入後設定目標分數、考試日期與每日練習時間，Nexora AI 會根據單字查詢、答題紀錄與弱點回饋，安排下一步學習任務。</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>Goal</strong><span>目標分數</span></div>
+      <div class="stat"><strong>Daily</strong><span>每日任務</span></div>
+      <div class="stat"><strong>Cloud</strong><span>雲端同步</span></div>
+    </div>
+  </section>
+
+  <main id="taskApp"></main>
+
+  <div class="section-head">
+    <span class="section-title">後台建議</span>
+    <span class="section-count">Cloudflare + Vercel</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-top"><div class="card-icon blue">🔐</div><div><div class="card-label">登入</div><div class="card-name">Vercel Auth 或 Cloudflare Access</div></div></div>
+      <div class="card-desc">正式環境用 OAuth / Email magic link，不要自己手寫密碼系統。登入後取得 user id，再存任務與 AI 使用紀錄。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon green">🗂</div><div><div class="card-label">資料</div><div class="card-name">Cloudflare D1 / KV</div></div></div>
+      <div class="card-desc">D1 適合存使用者、任務、完成紀錄；KV 適合快取單字查詢與常見 AI 回覆，降低模型成本。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon amber">⚙️</div><div><div class="card-label">AI 回饋</div><div class="card-name">任務資料反哺 Nexora AI</div></div></div>
+      <div class="card-desc">`/api/tasks` 記錄任務與完成率，`/api/quiz` 記錄錯題考點，`/api/assistant` 讀取弱點摘要後生成下一步建議。</div>
+    </div>
+  </div>
+
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · Study Tasks</span><span>Login-ready task flow</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

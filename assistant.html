@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora AI 助理</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links"><a class="active" href="index.html">AI 工具</a><a href="resources.html#toeic-resources">多益資源</a><a href="tasks.html">學習任務</a>
+      <a href="backend.html">後台</a></div>
+    <div class="nav-right"><div class="cloud-pill"><span class="cloud-dot"></span> 雲端助理</div><button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button></div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer"><div class="mobile-panel"><button class="drawer-close" id="drawerClose">x</button><a href="index.html" onclick="closeDrawer()">AI 工具</a><a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a><a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a></div></div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Nexora Study Assistant</div>
+    <h1>Nexora AI 助理<br><em>多益學習教練</em></h1>
+    <p>協助學生拆解錯題、安排複習節奏、推薦單字練習方向。正式部署後由雲端模型回覆，前端不保存金鑰。</p>
+  </section>
+
+  <main class="page-wrap">
+    <div class="tool-shell">
+      <aside class="tool-sidebar">
+        <div class="mode-tabs">
+          <a class="mode-tab" href="vocabulary.html"><span class="tab-icon">🔍</span> 單字掃描</a>
+          <a class="mode-tab" href="quiz.html"><span class="tab-icon">📝</span> Part 5 出題</a>
+          <a class="mode-tab active" href="assistant.html"><span class="tab-icon">💬</span> AI 助理</a>
+        </div>
+        <div>
+          <label class="form-label">快速提問</label>
+          <div class="quick-row">
+            <button class="quick-chip" onclick="askAssistant('幫我安排 14 天多益 Part 5 複習計畫')">14 天計畫</button>
+            <button class="quick-chip" onclick="askAssistant('我常錯介系詞題，要怎麼練？')">介系詞</button>
+            <button class="quick-chip" onclick="askAssistant('請用多益情境解釋 conference 和 convention 的差別')">單字比較</button>
+          </div>
+        </div>
+      </aside>
+      <section class="tool-main">
+        <div class="assistant-log" id="assistantLog">
+          <div class="assistant-msg"><strong>Nexora AI</strong>你好，我是你的多益學習助理。你可以貼錯題、問單字差異，或請我安排讀書計畫。</div>
+        </div>
+        <label class="form-label" for="assistantInput">提問內容</label>
+        <textarea id="assistantInput" class="form-textarea" placeholder="例如：我不懂 has been postponed 為什麼要用過去分詞..."></textarea>
+        <div style="height:8px;"></div>
+        <button class="btn btn-primary" id="assistantBtn">送出問題</button>
+      </section>
+    </div>
+  </main>
+
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · AI Study Assistant</span><span>Cloud assistant endpoint</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

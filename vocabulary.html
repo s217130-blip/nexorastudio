@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>單字智慧掃描 - Nexora</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links"><a class="active" href="index.html">AI 工具</a><a href="resources.html#toeic-resources">多益資源</a><a href="tasks.html">學習任務</a>
+      <a href="backend.html">後台</a></div>
+    <div class="nav-right"><div class="cloud-pill"><span class="cloud-dot"></span> 雲端查字</div><button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button></div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer"><div class="mobile-panel"><button class="drawer-close" id="drawerClose">x</button><a href="index.html" onclick="closeDrawer()">AI 工具</a><a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a><a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a></div></div>
+  <section class="hero"><div class="hero-eyebrow">Cloud Vocabulary Scanner</div><h1>單字智慧掃描<br><em>多益字彙 X 光分析</em></h1><p>前端不再輸入 API Key。查詢會送到雲端代理，統一回傳繁體中文定義、考頻、字根與例句。</p></section>
+  <main class="page-wrap">
+    <div class="tool-shell">
+      <aside class="tool-sidebar">
+        <div class="mode-tabs">
+          <a class="mode-tab active" href="vocabulary.html"><span class="tab-icon">🔍</span> 單字掃描</a>
+          <a class="mode-tab" href="quiz.html"><span class="tab-icon">📝</span> Part 5 出題</a>
+          <a class="mode-tab" href="assistant.html"><span class="tab-icon">💬</span> AI 助理</a>
+        </div>
+        <div>
+          <label class="form-label">英文單字</label>
+          <input id="wordInput" class="form-input" type="text" placeholder="conference..." autocomplete="off" spellcheck="false">
+          <div style="height:8px;"></div>
+          <button class="btn btn-primary btn-full" id="scanBtn">開始掃描</button>
+          <button class="btn btn-ghost btn-full" id="clearScanBtn" style="margin-top:6px;">清除</button>
+        </div>
+        <div id="errNotice" style="font-size:12px;color:var(--red);display:none;padding:4px 2px;"></div>
+      </aside>
+      <section class="tool-main">
+        <div class="state-center" id="stateWelcome"><div class="big">🎯</div><div>輸入單字開始查詢</div><div style="font-size:11px;color:var(--ink-4);">多益出題導向 · 繁體中文定義</div></div>
+        <div class="state-center" id="stateLoading" style="display:none;"><div class="spinner"></div><div>雲端 AI 分析中...</div></div>
+        <div id="stateResult" style="display:none;"></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · Cloud AI Vocabulary</span><span>API Key stays on server</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

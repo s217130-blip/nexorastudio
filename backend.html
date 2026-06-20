@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>後台系統 - Nexora</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links">
+      <a href="index.html">AI 工具</a>
+      <a href="resources.html#toeic-resources">多益資源</a>
+      <a href="tasks.html">學習任務</a>
+      <a class="active" href="backend.html">後台</a>
+    </div>
+    <div class="nav-right">
+      <div class="cloud-pill"><span class="cloud-dot"></span> Cloudflare / Vercel</div>
+      <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-panel">
+      <button class="drawer-close" id="drawerClose">x</button>
+      <a href="index.html" onclick="closeDrawer()">AI 工具</a>
+      <a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a>
+      <a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Backend Console · Cloud Services</div>
+    <h1>後台系統<br><em>辭典、出題、AI、任務分流</em></h1>
+    <p>辭典和出題是兩套雲端系統：辭典負責權威字義與詞庫快取，出題負責題型資料、難度校準與 AI 生成。Nexora AI 讀取兩邊資料，安排任務與回饋。</p>
+  </section>
+
+  <div class="section-head">
+    <span class="section-title">服務分層</span>
+    <span class="section-count">4 個後台服務</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="backend-grid">
+    <div class="backend-card">
+      <div class="backend-top"><div class="backend-name">雲端辭典系統</div><span class="status-pill">Cloud Ready</span></div>
+      <div class="backend-desc">優先查自建 Nexora 多益詞庫，再查授權字典 API 或外部來源連結。常見字快取到 Cloudflare KV，降低成本。</div>
+      <div class="route-list">
+        <code>POST /api/dictionary/search</code>
+        <code>GET /api/dictionary/cache/:word</code>
+      </div>
+    </div>
+    <div class="backend-card">
+      <div class="backend-top"><div class="backend-name">雲端出題系統</div><span class="status-pill">Cloud Ready</span></div>
+      <div class="backend-desc">依 Part 5 考點、難度、學生錯題紀錄生成題目。每題保存答對率、作答時間、錯誤選項分布。</div>
+      <div class="route-list">
+        <code>POST /api/quiz/generate</code>
+        <code>POST /api/quiz/attempt</code>
+      </div>
+    </div>
+    <div class="backend-card">
+      <div class="backend-top"><div class="backend-name">Nexora AI 助理</div><span class="status-pill warn">Needs Model Key</span></div>
+      <div class="backend-desc">讀取辭典結果、錯題資料、任務完成率與學習目標，產生個人化建議。模型金鑰只放 Worker / Vercel 環境變數。</div>
+      <div class="route-list">
+        <code>POST /api/assistant</code>
+        <code>POST /api/assistant/summary</code>
+      </div>
+    </div>
+    <div class="backend-card">
+      <div class="backend-top"><div class="backend-name">學習任務系統</div><span class="status-pill">D1 Ready</span></div>
+      <div class="backend-desc">存目標分數、每日任務、完成紀錄與 AI 推薦。前端目前可操作，正式上線接 Cloudflare D1。</div>
+      <div class="route-list">
+        <code>GET /api/tasks</code>
+        <code>POST /api/tasks</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <span class="section-title">建議資料流</span>
+    <span class="section-count">Cloudflare + Vercel</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-top"><div class="card-icon blue">1</div><div><div class="card-label">Dictionary</div><div class="card-name">查字先走詞庫</div></div></div>
+      <div class="card-desc">自建詞庫命中就直接回覆；沒有命中才走授權字典或 AI 補充說明，並寫入待審詞條。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon green">2</div><div><div class="card-label">Quiz</div><div class="card-name">出題先選考點</div></div></div>
+      <div class="card-desc">後台先選文法點與難度，再讓模型生成題目，最後由規則檢查答案、選項與 JSON 格式。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon amber">3</div><div><div class="card-label">Nexora AI</div><div class="card-name">用資料安排任務</div></div></div>
+      <div class="card-desc">AI 不只是回答問題，而是讀取查字、出題、錯題與任務紀錄，回推下一天的學習安排。</div>
+    </div>
+  </div>
+
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · Backend Console</span><span>Dictionary / Quiz / AI / Tasks</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

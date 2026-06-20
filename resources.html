@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學習資源 - Nexora</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links"><a href="index.html">AI 工具</a><a class="active" href="#toeic-resources">多益資源</a><a href="tasks.html">學習任務</a>
+      <a href="backend.html">後台</a></div>
+    <div class="nav-right"><div class="cloud-pill"><span class="cloud-dot"></span> 精選資源</div><button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button></div>
+  </nav>
+  <div class="mobile-drawer" id="mobileDrawer"><div class="mobile-panel"><button class="drawer-close" id="drawerClose">x</button><a href="index.html" onclick="closeDrawer()">AI 工具</a><a href="#toeic-resources" onclick="closeDrawer()">多益資源</a><a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a></div></div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">TOEIC Resources</div>
+    <h1>多益備考資源<br><em>官方與學習平台入口</em></h1>
+    <p>保留原本的資源導覽，搭配多頁式工具架構，讓學生能從查字、練題到延伸學習一路走完。</p>
+  </section>
+
+  <div class="section-head section-anchor" id="toeic-resources"><span class="section-title">多益備考資源</span><span class="section-count">6 個資源</span><div class="section-line"></div></div>
+  <div class="card-grid">
+    <a class="card" href="https://www.toeic.com.tw" target="_blank"><div class="card-top"><div class="card-icon blue">🏆</div><div><div class="card-label">官方機構</div><div class="card-name">多益官方網站</div></div></div><div class="card-desc">TOEIC 台灣官方網站，提供考試日程、報名、成績查詢與官方備考資源。</div><div class="card-cta">前往官方平台</div></a>
+    <a class="card" href="https://www.learnmode.net" target="_blank"><div class="card-top"><div class="card-icon amber">📚</div><div><div class="card-label">學習平台</div><div class="card-name">學習吧 LearnMode</div></div></div><div class="card-desc">具備語音辨識與多元課程的數位教學平台，適合多益聽力與口說練習。</div><div class="card-cta">前往官方平台</div></a>
+    <a class="card" href="https://www.coolenglish.edu.tw" target="_blank"><div class="card-top"><div class="card-icon green">🌐</div><div><div class="card-label">免費資源</div><div class="card-name">Cool English</div></div></div><div class="card-desc">教育部補助之英語聽說讀寫練習平台，具備互動學習遊戲與單字檢測。</div><div class="card-cta">前往官方平台</div></a>
+    <a class="card" href="https://www.gept.org.tw" target="_blank"><div class="card-top"><div class="card-icon red">📋</div><div><div class="card-label">英語鑑定</div><div class="card-name">全民英檢 GEPT</div></div></div><div class="card-desc">語言訓練測驗中心主辦之英語能力檢定，與多益互相補充的備考資源。</div><div class="card-cta">前往官方平台</div></a>
+    <a class="card" href="https://www.junyiacademy.org" target="_blank"><div class="card-top"><div class="card-icon blue">🎓</div><div><div class="card-label">免費學習</div><div class="card-name">均一教育平台</div></div></div><div class="card-desc">提供免費線上英文學習影片與練習題，協助系統性打好英文基礎。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://engoo.com.tw" target="_blank"><div class="card-top"><div class="card-icon amber">🎙</div><div><div class="card-label">口說練習</div><div class="card-name">Engoo 線上英文</div></div></div><div class="card-desc">一對一線上英文家教，24 小時隨選隨上，適合多益口說與聽力加強。</div><div class="card-cta">前往平台</div></a>
+  </div>
+
+  <div class="section-head section-anchor" id="dictionary-sources"><span class="section-title">辭典資料策略</span><span class="section-count">授權與自建</span><div class="section-line"></div></div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-top"><div class="card-icon blue">📘</div><div><div class="card-label">授權資料</div><div class="card-name">Oxford / Cambridge 類字典</div></div></div>
+      <div class="card-desc">若要顯示完整定義、例句、音標與語料，應使用正式授權或資料 API；不要直接抓取或複製線上辭典內容。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon green">🧩</div><div><div class="card-label">自建詞庫</div><div class="card-name">多益繁中定義層</div></div></div>
+      <div class="card-desc">Nexora 可建立自己的多益常見字義、台灣繁中解釋、商務情境例句與考頻標籤，降低長期授權成本。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon amber">🔗</div><div><div class="card-label">外部參考</div><div class="card-name">連到原始辭典頁</div></div></div>
+      <div class="card-desc">需要權威來源時，可以提供外部辭典連結讓學生查證；平台內則顯示 Nexora 自己整理的學習重點。</div>
+    </div>
+  </div>
+
+  <div class="section-head section-anchor" id="learning-links"><span class="section-title">英文學習平台</span><span class="section-count">6 個平台</span><div class="section-line"></div></div>
+  <div class="card-grid">
+    <a class="card" href="https://learnenglish.britishcouncil.org" target="_blank"><div class="card-top"><div class="card-icon blue">🇬🇧</div><div><div class="card-label">綜合學習</div><div class="card-name">British Council LearnEnglish</div></div></div><div class="card-desc">英國文化協會的英文自學平台，涵蓋文法、字彙、聽力、閱讀與商務英文，適合建立長期學習路徑。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://www.bbc.co.uk/learningenglish" target="_blank"><div class="card-top"><div class="card-icon green">🎧</div><div><div class="card-label">聽力口說</div><div class="card-name">BBC Learning English</div></div></div><div class="card-desc">以短音頻、影片和新聞語境訓練自然英文，適合作為多益聽力與日常語感補充。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://learningenglish.voanews.com" target="_blank"><div class="card-top"><div class="card-icon amber">📰</div><div><div class="card-label">新聞英文</div><div class="card-name">VOA Learning English</div></div></div><div class="card-desc">用較慢語速和清楚文本呈現國際新聞與生活主題，適合中級學習者累積聽讀能力。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://www.cambridgeenglish.org/learning-english/" target="_blank"><div class="card-top"><div class="card-icon red">🎓</div><div><div class="card-label">考試練習</div><div class="card-name">Cambridge English</div></div></div><div class="card-desc">提供英語測驗與分級練習資源，可補足多益以外的文法、閱讀和語言能力訓練。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://www.oxfordlearnersdictionaries.com" target="_blank"><div class="card-top"><div class="card-icon gray">📘</div><div><div class="card-label">學習字典</div><div class="card-name">Oxford Learner's Dictionaries</div></div></div><div class="card-desc">適合查英文釋義、發音、例句和搭配用法；Nexora 可連到外部權威來源，不直接複製內容。</div><div class="card-cta">前往平台</div></a>
+    <a class="card" href="https://www.englishclub.com" target="_blank"><div class="card-top"><div class="card-icon green">✍️</div><div><div class="card-label">文法字彙</div><div class="card-name">EnglishClub</div></div></div><div class="card-desc">整理大量文法、字彙、發音和練習內容，適合學生自學與老師補充教材。</div><div class="card-cta">前往平台</div></a>
+  </div>
+
+  <footer><div class="footer-bottom"><span>© 2026 Nexora · TOEIC Resources</span><span>Cloud-ready multi-page site</span></div></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
