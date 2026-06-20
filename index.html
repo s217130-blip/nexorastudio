@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora - 多益 AI 學習平台</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html"><span class="dot"></span> Nexora</a>
+    <div class="nav-links">
+      <a class="active" href="index.html">AI 工具</a>
+      <a href="resources.html#toeic-resources">多益資源</a>
+      <a href="tasks.html">學習任務</a>
+      <a href="backend.html">後台</a>
+    </div>
+    <div class="nav-right">
+      <div class="cloud-pill"><span class="cloud-dot"></span> 雲端 AI 已接管</div>
+      <button class="hamburger" id="hamburger" aria-label="選單"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-panel">
+      <button class="drawer-close" id="drawerClose">x</button>
+      <a href="index.html" onclick="closeDrawer()">AI 工具</a>
+      <a href="resources.html#toeic-resources" onclick="closeDrawer()">多益資源</a>
+      <a href="tasks.html" onclick="closeDrawer()">學習任務</a>
+      <a href="backend.html" onclick="closeDrawer()">後台</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-eyebrow">TOEIC 導向 · Nexora AI 驅動</div>
+    <h1>Nexora<br><em>多益 AI 學習系統</em></h1>
+    <p>Nexora AI 負責理解學生弱點、安排任務與學習回饋；雲端出題引擎負責多益考點、難度與題目生成，辭典層則整合授權字典與自建詞庫。</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>AI Core</strong><span>學習中樞</span></div>
+      <div class="stat"><strong>Cloud</strong><span>出題引擎</span></div>
+      <div class="stat"><strong>Lexicon</strong><span>辭典資料</span></div>
+      <div class="stat"><strong>Tasks</strong><span>任務回饋</span></div>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <span class="section-title">AI 學習工具</span>
+    <span class="section-count">4 個功能</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="vocabulary.html">
+      <div class="card-top">
+        <div class="card-icon blue">🔍</div>
+        <div><div class="card-label">AI 工具</div><div class="card-name">單字智慧掃描</div></div>
+      </div>
+      <div class="card-desc">輸入英文單字，透過雲端 AI 分析多益考頻、一字多義、字根拆解與多益情境例句。</div>
+      <div class="card-cta">開啟工具 <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></div>
+    </a>
+    <a class="card" href="quiz.html">
+      <div class="card-top">
+        <div class="card-icon green">📝</div>
+        <div><div class="card-label">AI 工具</div><div class="card-name">Part 5 智能出題</div></div>
+      </div>
+      <div class="card-desc">選擇多益出題情境，雲端 AI 生成文法選擇題，包含解析與中文翻譯。</div>
+      <div class="card-cta">開始練習 <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></div>
+    </a>
+    <a class="card" href="assistant.html">
+      <div class="card-top">
+        <div class="card-icon amber">💬</div>
+        <div><div class="card-label">AI 助理</div><div class="card-name">Nexora 學習助理</div></div>
+      </div>
+      <div class="card-desc">針對錯題、單字、讀書計畫與考前策略提供即時建議，適合多頁式學習流程。</div>
+      <div class="card-cta">詢問助理 <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></div>
+    </a>
+    <a class="card" href="tasks.html">
+      <div class="card-top">
+        <div class="card-icon red">✅</div>
+        <div><div class="card-label">學習系統</div><div class="card-name">學習任務</div></div>
+      </div>
+      <div class="card-desc">登入後設定目標分數、考試日期與每日時間，把單字、Part 5 和 AI 助理安排成每日任務。</div>
+      <div class="card-cta">設定任務 <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></div>
+    </a>
+  </div>
+
+  <div class="section-head">
+    <span class="section-title">系統架構</span>
+    <span class="section-count">AI + 雲端 + 辭典</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-top"><div class="card-icon gray">🧠</div><div><div class="card-label">Nexora AI</div><div class="card-name">個人化學習中樞</div></div></div>
+      <div class="card-desc">記錄弱點、任務完成率與錯題類型，讓 AI 每次回覆都能依學生狀態調整建議，而不是只做一次性聊天。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon blue">☁️</div><div><div class="card-label">雲端出題</div><div class="card-name">考點與難度控制</div></div></div>
+      <div class="card-desc">Part 5 題目由雲端根據多益題型、常見文法點與使用者程度生成，並可累積答題資料做難度校準。</div>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon green">📚</div><div><div class="card-label">辭典層</div><div class="card-name">授權字典與自建詞庫</div></div></div>
+      <div class="card-desc">單字定義不直接複製牛津或劍橋內容，而是接授權資料、引用外部連結，或建立自己的多益繁中字典資料庫。</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><span style="color:var(--accent)">●</span> Nexora</div>
+        <div class="footer-tagline">多益 AI 學習平台，整合雲端單字分析、Part 5 出題與台灣教育資源。</div>
+      </div>
+      <div class="footer-col"><h4>AI 工具</h4><a href="vocabulary.html">單字智慧掃描</a><a href="quiz.html">Part 5 智能出題</a><a href="assistant.html">AI 助理</a></div>
+      <div class="footer-col"><h4>資源</h4><a href="resources.html">學習資源</a><a href="https://www.toeic.com.tw" target="_blank">多益官方</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Nexora · Cloud AI 驅動</span><span>Server-side API Proxy</span></div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
