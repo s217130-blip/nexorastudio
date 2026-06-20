@@ -409,6 +409,50 @@ function renderTaskPage() {
     });
   });
 }
+// assets/app.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 手機版漢堡選單開關邏輯
+  const hamburger = document.getElementById('hamburger');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+
+  if (hamburger && mobileDrawer) {
+    hamburger.addEventListener('click', () => {
+      mobileDrawer.classList.add('open');
+    });
+  }
+
+  if (drawerClose && mobileDrawer) {
+    drawerClose.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+    });
+  }
+
+  // 2. 提供全域的全功能關閉抽屜函式（修正 HTML 上的 onclick 噴錯問題）
+  window.closeDrawer = function() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('open');
+    }
+  };
+
+  // 3. 測試本機示範資料流（如果還沒接 Worker API 的暫時防崩潰機制）
+  const quizBtn = document.getElementById('quizBtn');
+  if (quizBtn) {
+    quizBtn.addEventListener('click', () => {
+      const welcome = document.getElementById('stateWelcome');
+      const loading = document.getElementById('stateLoading');
+      if (welcome) welcome.style.display = 'none';
+      if (loading) loading.style.display = 'flex';
+      
+      // 模擬 AI 雲端出題兩秒鐘
+      setTimeout(() => {
+        if (loading) loading.style.display = 'none';
+        alert('前端大腦已接管！接下來只要把 cloudflare-worker.js 的 API 透過 fetch() 串進來，題目就會顯示在這邊了！');
+      }, 1500);
+    });
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
