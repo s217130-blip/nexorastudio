@@ -1,2 +1,9 @@
 # Google App Engine generated folder
 appengine-generated/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
